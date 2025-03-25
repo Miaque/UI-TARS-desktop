@@ -22,6 +22,7 @@ ${BrowserbaseOperator.MANUAL.ACTION_SPACES.join('\n')}
 ## Note
 - The first step should be to GOTO a specific website
 - Write a small plan and finally summarize your next action (with its target element) in one sentence in \`Thought\` part.
+- if you need open software, do double click
 
 ## Example
 ${BrowserbaseOperator.MANUAL.EXAMPLES.join('\n')}

@@ -59,7 +59,7 @@ export class UITarsModel extends Model {
       baseURL,
       apiKey,
       model,
-      max_tokens = 1000,
+      max_tokens = 3000,
       temperature = 0,
       top_p = 0.7,
       ...restOptions

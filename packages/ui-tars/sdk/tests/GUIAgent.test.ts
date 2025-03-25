@@ -19,11 +19,14 @@ vi.mock('openai', () => ({
   default: vi.fn(),
 }));
 
-const image = new Jimp({
-  width: 1920,
-  height: 1080,
-  color: 0xffffffff,
-});
+// const image = new Jimp({
+//   width: 1920,
+//   height: 1080,
+//   color: 0xffffffff,
+// });
+const image = await Jimp.read(
+  'C:\\Users\\user\\Pictures\\Screenshots\\desktop.png',
+);
 class MockOperator extends Operator {
   screenshot = vi.fn().mockImplementation(async () => {
     const buffer = await image.getBuffer('image/png');
@@ -51,9 +54,9 @@ describe('GUIAgent', () => {
       'Thought: finished.\nAction: finished()',
     ]);
     const modelConfig = {
-      baseURL: 'http://localhost:3000/v1',
-      apiKey: 'test',
-      model: 'ui-tars',
+      baseURL: 'https://api.siliconflow.cn/v1',
+      apiKey: 'sk-kthlpnvbxxnqjlvfopnhxpbaobzkpgylkqxuwzpfkqbwvcoj',
+      model: 'Qwen/Qwen2.5-VL-72B-Instruct',
     };
     const operator = new MockOperator();
 

@@ -188,6 +188,7 @@ export class GUIAgent<T extends Operator> extends BaseGUIAgent<
           mime,
           scaleFactor: snapshot.scaleFactor,
         };
+        console.log('[GUIAgent vlmParams]:', vlmParams);
         const { prediction, parsedPredictions } = await asyncRetry(
           async (bail) => {
             try {

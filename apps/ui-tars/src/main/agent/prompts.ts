@@ -20,6 +20,7 @@ ${NutJSElectronOperator.MANUAL.ACTION_SPACES.join('\n')}
 ## Note
 - Use ${language === 'zh' ? 'Chinese' : 'English'} in \`Thought\` part.
 - Write a small plan and finally summarize your next action (with its target element) in one sentence in \`Thought\` part.
+- if you need open software, do double click
 
 ## User Instruction
 `;

@@ -44,8 +44,8 @@ export const parseBoxToScreenCoords = ({
   const [widthFactor, heightFactor] = factors;
 
   return {
-    x: Math.round(((x1 + x2) / 2) * screenWidth * widthFactor) / widthFactor,
-    y: Math.round(((y1 + y2) / 2) * screenHeight * heightFactor) / heightFactor,
+    x: Math.round(((x1 + x2) / 2) * widthFactor),
+    y: Math.round(((y1 + y2) / 2) * heightFactor),
   };
 };
 
@@ -171,22 +171,22 @@ export async function preprocessResizeImage(
     const { width, height } = image.bitmap;
 
     const currentPixels = width * height;
-    if (currentPixels > maxPixels) {
-      const resizeFactor = Math.sqrt(maxPixels / currentPixels);
-      const newWidth = Math.floor(width * resizeFactor);
-      const newHeight = Math.floor(height * resizeFactor);
+    // if (currentPixels > maxPixels) {
+    //   const resizeFactor = Math.sqrt(maxPixels / currentPixels);
+    //   const newWidth = Math.floor(width * resizeFactor);
+    //   const newHeight = Math.floor(height * resizeFactor);
+    //
+    //   const resized = await image
+    //     .resize({
+    //       w: newWidth,
+    //       h: newHeight,
+    //     })
+    //     .getBuffer('image/png', { quality: 60 });
+    //
+    //   return resized.toString('base64');
+    // }
 
-      const resized = await image
-        .resize({
-          w: newWidth,
-          h: newHeight,
-        })
-        .getBuffer('image/png', { quality: 60 });
-
-      return resized.toString('base64');
-    }
-
-    const base64 = await image.getBase64('image/png', { quality: 60 });
+    const base64 = await image.getBase64('image/png', { quality: 100 });
 
     return replaceBase64Prefix(base64);
   } catch (error) {

@@ -155,18 +155,13 @@ export function parseActionVlm(
             actionInputs[boxKey] =
               x1 && y1 && x2 && y2
                 ? [
-                    (Math.round(
-                      ((x1 + x2) / 2) * screenContext?.width * widthFactor,
-                    ) /
-                      widthFactor) *
+                    Math.round(((x1 + x2) / 2) * widthFactor) *
                       (scaleFactor ?? 1),
-                    (Math.round(
-                      ((y1 + y2) / 2) * screenContext?.height * heightFactor,
-                    ) /
-                      heightFactor) *
+                    Math.round(((y1 + y2) / 2) * heightFactor) *
                       (scaleFactor ?? 1),
                   ]
                 : [];
+            console.log('actionInputs[boxKey]', actionInputs[boxKey]);
           }
         }
       }
@@ -182,6 +177,7 @@ export function parseActionVlm(
 
   return actions;
 }
+
 /**
  * Parses an action string into a structured object
  * @param {string} actionStr - The action string to parse (e.g. "click(start_box='(279,81)')")
