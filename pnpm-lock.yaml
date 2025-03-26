@@ -183,6 +183,9 @@ importers:
       '@modelcontextprotocol/sdk':
         specifier: ^1.7.0
         version: 1.7.0
+      '@playwright/test':
+        specifier: ^1.49.1
+        version: 1.50.1
       '@types/fs-extra':
         specifier: 11.0.4
         version: 11.0.4
@@ -201,6 +204,9 @@ importers:
       bufferutil:
         specifier: 4.0.9
         version: 4.0.9
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
       dotenv:
         specifier: 16.4.7
         version: 16.4.7
@@ -210,6 +216,9 @@ importers:
       electron-packager-languages:
         specifier: 0.6.0
         version: 0.6.0
+      electron-playwright-helpers:
+        specifier: ^1.7.1
+        version: 1.7.1
       electron-store:
         specifier: ^10.0.0
         version: 10.0.1
@@ -802,6 +811,9 @@ importers:
       '@agent-infra/browser-use':
         specifier: workspace:*
         version: link:../../browser-use
+      '@agent-infra/logger':
+        specifier: workspace:*
+        version: link:../../logger
       '@ghostery/adblocker-puppeteer':
         specifier: 2.5.0
         version: 2.5.0(puppeteer@24.4.0(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@6.0.5))
@@ -921,6 +933,46 @@ importers:
       zod-to-json-schema:
         specifier: ^3.23.5
         version: 3.24.1(zod@3.24.2)
+
+  packages/agent-infra/mcp-servers/shared:
+    dependencies:
+      '@modelcontextprotocol/sdk':
+        specifier: ^1.6.1
+        version: 1.7.0
+      zod:
+        specifier: ^3.23.8
+        version: 3.24.2
+    devDependencies:
+      '@agent-infra/logger':
+        specifier: workspace:*
+        version: link:../../logger
+      '@ghostery/adblocker-puppeteer':
+        specifier: 2.5.0
+        version: 2.5.0(puppeteer@24.4.0(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@6.0.5))
+      '@rslib/core':
+        specifier: 0.5.3
+        version: 0.5.3(typescript@5.7.3)
+      '@types/diff':
+        specifier: ^5.0.9
+        version: 5.2.3
+      '@types/minimatch':
+        specifier: ^5.1.2
+        version: 5.1.2
+      '@types/node':
+        specifier: ^22
+        version: 22.13.10
+      cross-fetch:
+        specifier: 4.1.0
+        version: 4.1.0(encoding@0.1.13)
+      tsx:
+        specifier: ^4.19.3
+        version: 4.19.3
+      typescript:
+        specifier: ^5.7.3
+        version: 5.7.3
+      vitest:
+        specifier: ^3.0.7
+        version: 3.0.8(@types/debug@4.1.12)(@types/node@22.13.10)(happy-dom@17.1.1)(jiti@2.4.2)(jsdom@26.0.0(bufferutil@4.0.9)(utf-8-validate@6.0.5))(msw@2.7.0(@types/node@22.13.10)(typescript@5.7.3))(sass-embedded@1.83.4)(sass@1.85.1)(tsx@4.19.3)(yaml@2.7.0)
 
   packages/agent-infra/search/bing-search:
     dependencies:
@@ -1113,6 +1165,9 @@ importers:
         specifier: 2.0.0
         version: 2.0.0
     devDependencies:
+      '@electron-forge/shared-types':
+        specifier: ^7.8.0
+        version: 7.8.0
       '@rslib/core':
         specifier: ^0.5.4
         version: 0.5.4(typescript@5.7.3)
@@ -2150,6 +2205,10 @@ packages:
     resolution: {integrity: sha512-1zQsmudkAuHv0HnJtSJY3pvTeuN3fnSa9BR6cbeUlcpOfrnG4OTG03FqerHfyIWaBRVy7jGgif0NhKKE9azKyg==}
     engines: {node: '>= 16.4.0'}
 
+  '@electron-forge/shared-types@7.8.0':
+    resolution: {integrity: sha512-Ul+7HPvAZiAirqpZm0vc9YvlkAE+2bcrI10p3t50mEtuxn5VO/mB72NXiEKfWzHm8F31JySIe9bUV6s1MHQcCw==}
+    engines: {node: '>= 16.4.0'}
+
   '@electron-forge/template-base@7.7.0':
     resolution: {integrity: sha512-jwnhEHNIyQfbwJ6R8SuZIJApHKBykDr/rSgUF3km9nr2qAUSoUUV7RaJa/uiQJMtvamXenuo5K84C2NzumzS3A==}
     engines: {node: '>= 16.4.0'}
@@ -2172,6 +2231,10 @@ packages:
 
   '@electron-forge/tracer@7.7.0':
     resolution: {integrity: sha512-R/JiGFzWhwfVyc6ioT4l5FFChRLS4Z2tWPeQfPcyoemdpzKpI1rvMHti42gzWXFW8GdzkhG0G3ZWfKiF3y3x/Q==}
+    engines: {node: '>= 14.17.5'}
+
+  '@electron-forge/tracer@7.8.0':
+    resolution: {integrity: sha512-t4fIATZEX6/7PJNfyh6tLzKEsNMpO01Nz/rgHWBxeRvjCw5UNul9OOxoM7b43vfFAO9Jv++34oI3VJ09LeVQ2Q==}
     engines: {node: '>= 14.17.5'}
 
   '@electron-forge/web-multi-logger@7.7.0':
@@ -12897,6 +12960,16 @@ snapshots:
       - bluebird
       - supports-color
 
+  '@electron-forge/shared-types@7.8.0':
+    dependencies:
+      '@electron-forge/tracer': 7.8.0
+      '@electron/packager': 18.3.6
+      '@electron/rebuild': 3.7.1
+      listr2: 7.0.2
+    transitivePeerDependencies:
+      - bluebird
+      - supports-color
+
   '@electron-forge/template-base@7.7.0':
     dependencies:
       '@electron-forge/core-utils': 7.7.0
@@ -12946,6 +13019,10 @@ snapshots:
       - supports-color
 
   '@electron-forge/tracer@7.7.0':
+    dependencies:
+      chrome-trace-event: 1.0.4
+
+  '@electron-forge/tracer@7.8.0':
     dependencies:
       chrome-trace-event: 1.0.4
 
