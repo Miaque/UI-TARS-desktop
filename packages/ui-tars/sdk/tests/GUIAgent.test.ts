@@ -55,7 +55,7 @@ describe('GUIAgent', () => {
     ]);
     const modelConfig = {
       baseURL: 'https://api.siliconflow.cn/v1',
-      apiKey: 'sk-kthlpnvbxxnqjlvfopnhxpbaobzkpgylkqxuwzpfkqbwvcoj',
+      apiKey: 'xxxx',
       model: 'Qwen/Qwen2.5-VL-72B-Instruct',
     };
     const operator = new MockOperator();
